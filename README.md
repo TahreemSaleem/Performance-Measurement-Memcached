@@ -6,18 +6,21 @@ In order to complete the tasks below, please fill the gaps code wise in the file
 
 ##### Container #1: #####
 * Base image: Ubuntu 16.04 LTS
-* SSH Server
-* memcached v1.4.33 (build from source)
+* SSH Server – expose port to external port 20022
+* Add the CI's public ssh key (gitlab_id_rsa.pub) in addition to yours to the ssh server
+* Ssh with public key should work
+* Install memcached v1.4.33 (build from source)
 * Expose ports for SSH Server and memcached (for other container)
 * Run container as user Ubuntu (id=1000) instead of root
 
 ##### Container #2: #####
 * Base image: Ubuntu 16.04 LTS
 * SSH Server – expose port to external port 10022
-* memcached benchmark client (mcperf)
-* Dude & R
+* Add the CI's public ssh key (gitlab_id_rsa.pub) in addition to yours to the ssh server
+* Ssh with public key should work
+* Install memcached benchmark client (mcperf)
+* Intstall Dude & R
 * Run container as user Ubuntu (id=1000) instead of root
-* Add my ssh public key in addition to yours – see below
 
 
 ##### Docker compose #####
@@ -43,8 +46,8 @@ sudo docker-compose down
 ```
 
 ### General Notes ###
-* Solutions must be turned in no later than **11:59pm AOE, 14th of Dec‘18!** No late days or other excuses.
-* Commit & PUSH!!! to your bitbucket repository before the deadline. Don't forget the push.
+* Solutions must be turned in no later than **XXXXXXXXXXXX** No late days or other excuses.
+* Commit & PUSH!!! to your repository often before the deadline. Don't forget the push.
 * No team work. We check for plagarism and will let you fail if there is an indication given.
 * Ask questions at [auditorium](https://auditorium.inf.tu-dresden.de) if there are any.
 
