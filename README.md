@@ -46,12 +46,9 @@ sudo docker-compose down
 ```
 
 ### General Notes ###
-* Solutions must be turned in no later than **XXXXXXXXXXXX** No late days or other excuses.
+* Solutions must be turned in no later than Jan, 5th AoE - No late days or other excuses.
 * Commit & PUSH!!! to your repository often before the deadline. Don't forget the push.
 * No team work. We check for plagarism and will let you fail if there is an indication given.
 * Ask questions at [auditorium](https://auditorium.inf.tu-dresden.de) if there are any.
 
-My ssh-public-key:
-```
-ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAt2TT7c/Y/693GKH1sAKpAPu/CsrUsq1da9HcxagbUCHNKlhzDzqC5qmbEGOxD0bLRBJICt2Pe9Zx7W80ndhq67dR1ZUUWVT29T8TVqUjGK02WyAmaLg5HWlizYKwS5oucD9qcWJfXlgKIx5OkpbzzPiCuAjnWonFGGp9sADlAC1VRmLvI4NH5bKtqGILFYHRvcKt7V/5PtrWM17j4KqWY9g1RK2Yw9YlUXV8oVVyXBUZhrmhkwSEmwzOh5c/K0EhrqfonPo4W654PhkBZ9rxaUq6zgV/rmYvJdmOd5wRH1W8+oaf/voa4xEur5c6MYWOj2kPwx+JlmkmTUzdTen2gQ== André Martin
-```
+Add ssh-public-key contained in this repository!
