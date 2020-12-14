@@ -15,7 +15,7 @@ def prepare_exp(SSHHost, SSHPort, REMOTEROOT, optpt):
     
     f.write("ssh -F config benchmark \"nohup ls dummy -p 11222 -P memcached.pid > memcached.out 2> memcached.err &\"\n") # adjust this line to properly start memcached
     
-    f.write("RESULT=`ssh -F config benchmark \"pidof memcachd\"`\n")
+    f.write("RESULT=`ssh -F config benchmark \"pidof memcached\"`\n")
 
     f.write("sleep 5\n")
 
