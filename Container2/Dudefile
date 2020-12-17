@@ -17,8 +17,8 @@ optspace = {
     "rate"    : [1000, 2000, 5000, 10000, 20000, 30000, 50000, 100000, 150000],
 }
 
-SSHHost    = "localhost"
-SSHPort    = 22
+SSHHost    = "server"
+SSHPort    = 2000
 REMOTEROOT = "~"
 
 class Statistics (dude.summaries.FilesLineSelect):

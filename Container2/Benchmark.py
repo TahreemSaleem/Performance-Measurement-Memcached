@@ -6,6 +6,9 @@ def prepare_exp(SSHHost, SSHPort, REMOTEROOT, optpt):
     f.write("Host benchmark\n")
     f.write("   Hostname %s\n" % SSHHost)
     f.write("   Port %d\n" % SSHPort)
+    f.write("   User ubuntu\n")
+    f.write("   IdentityFile ~/.ssh/sshcontainerkey\n")
+    f.write("   StrictHostKeyChecking no\n")
     f.close()
     
 
@@ -21,10 +24,13 @@ def prepare_exp(SSHHost, SSHPort, REMOTEROOT, optpt):
 
     f.write("if [[ -z \"${RESULT// }\" ]]; then echo \"memcached process not running\"; CODE=1; else CODE=0; fi\n")
         
-    f.write("%s/dummy --execute-number=%d --concurrency=%d -s %s > stats.log\n\n" % (REMOTEROOT, optpt["noRequests"], optpt["concurrency"], SSHHost)) #adjust this line to properly start the client
+    f.write("%s/mcperf --num-conns=%d --num-calls=%d -s %s > stats.log\n\n" % (REMOTEROOT, optpt["noRequests"], optpt["concurrency"], SSHHost)) #adjust this line to properly start the client
     
     # add a few lines to extract the "Response rate" and "Response time \[ms\]: av and store them in $REQPERSEC and $LATENCY"
-    
+    f.write("REQPERSEC=`cat test.log | head -11l | tail -1l | cut -d" " -f3`\n")
+    f.write("LATENCY=`cat test.log | head -13l | tail -1l | cut -d" " -f5`\n")
+
+
     f.write("ssh -F config benchmark \"sudo kill -9 $(cat memcached.pid)\"\n")
 
     f.write("echo \"requests latency\" > stats.csv\n")
