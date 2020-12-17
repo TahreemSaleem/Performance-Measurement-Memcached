@@ -17,8 +17,6 @@ RUN mkdir /app
 COPY entrypoint.sh /app
 RUN chmod +x /app/entrypoint.sh
 
-
-
 RUN mkdir -p /home/ubuntu/.ssh
 RUN mkdir -p /root/.ssh
 COPY sshcontainerkey /home/ubuntu/.ssh/
@@ -33,41 +31,37 @@ RUN cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys
 COPY sshd_config /home/ubuntu/.ssh/sshd_config
 RUN chmod 700 /home/ubuntu/.ssh/sshd_config
 
+#install mcperf
+RUN apt-get install -y gcc make wget
+RUN wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/twemperf/mcperf-0.1.1.tar.gz
+RUN tar zxvf mcperf-0.1.1.tar.gz
+RUN cd mcperf-0.1.1 && ./configure && make && make install
+RUN rm -f /mcperf-0.1.1.tar.gz
 
+#install R and Dude
+RUN apt install -y r-base python git
+RUN git clone https://bitbucket.org/db7/dude.git
+RUN cd /dude && python setup.py install
 
-
-# Setup the default user.
 
 
 RUN service ssh start
 
-
+# Setup the default user.
 RUN useradd -ms /bin/bash -g root -G sudo -u 1000 ubuntu
 RUN usermod -aG sudo ubuntu
 RUN echo 'ubuntu:ubuntu' | chpasswd
 
 RUN cp /etc/ssh /home/ubuntu/ssh -r
 #COPY sshcontainerkey /home/ubuntu/ssh
-RUN chmod 600 /home/ubuntu/ssh/* && ls /home/ubuntu/ssh/
-RUN chown -R ubuntu /home/ubuntu/ssh
+#RUN chmod 600 /home/ubuntu/ssh/* && ls /home/ubuntu/ssh/
+#RUN chown -R ubuntu /home/ubuntu/ssh
 RUN chown -R ubuntu /home/ubuntu/
 
 WORKDIR /home/ubuntu
 
 EXPOSE 10022
 
-#CMD ["/usr/sbin/sshd","-D"]
-#RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 Ubuntu
-#
-#RUN  echo 'test:test' | chpasswd
-#
-##non root user
-#RUN useradd -u 1000 Ubuntu
-## Change to non-root privilege
-#USER Ubuntu
-RUN chown -R ubuntu /etc/ssh
 USER ubuntu
 
-
-#have to search how to run ssh and memecached together
 ENTRYPOINT ["/app/entrypoint.sh"]
