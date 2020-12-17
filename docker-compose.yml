@@ -1,8 +1,26 @@
 version: '3'
 services:
   server:
+    container_name: "server"
     build:
-YOUR CODE GOES HERE
-	client:
+      context: Container1
+      dockerfile: Dockerfile
+    ports:
+      - "20022:2000"
+      - "11211:11211"
+
+  client:
+    container_name: "client"
     build:
-YOUR CODE GOES HERE
+      context: Container2
+      dockerfile: Dockerfile
+    ports:
+      - "10022:10022"
+
+
+
+
+
+#	client:
+#    build:
+
