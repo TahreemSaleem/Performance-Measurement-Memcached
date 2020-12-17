@@ -35,8 +35,8 @@ RUN chmod +x /app/entrypoint.sh
 RUN mkdir -p /home/ubuntu/.ssh
 
 #appending public keyes from environment variable
-RUN echo "$local_key\n" > /home/ubuntu/.ssh/authorized_keys
-RUN echo "$gitlab_key\n" >> /home/ubuntu/.ssh/authorized_keys
+RUN echo "$gitlab_key\n" > /home/ubuntu/.ssh/authorized_keys
+RUN echo "$local_key\n" >> /home/ubuntu/.ssh/authorized_keys
 RUN echo "$container_key" >> /home/ubuntu/.ssh/authorized_keys
 RUN chmod 700 /home/ubuntu/.ssh/authorized_keys
 
@@ -49,8 +49,8 @@ RUN service ssh start
 
 # Setup the default user.
 RUN useradd -ms /bin/bash -g root -G sudo -u 1000 ubuntu
-RUN usermod -aG sudo ubuntu
-RUN echo 'ubuntu:ubuntu' | chpasswd
+#RUN usermod -aG sudo ubuntu
+#RUN echo 'ubuntu:ubuntu' | chpasswd
 
 # ubuntu user can't access /etc/ folder, hence copying to its home folder and granting access
 RUN cp /etc/ssh /home/ubuntu/ssh -r
