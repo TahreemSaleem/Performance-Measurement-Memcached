@@ -68,4 +68,6 @@ EXPOSE 2000
 #setting ubuntu user to start container
 USER ubuntu
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["/usr/sbin/sshd","-D","-f","/home/ubuntu/.ssh/sshd_config"]
+
+#ENTRYPOINT ["/app/entrypoint.sh"]

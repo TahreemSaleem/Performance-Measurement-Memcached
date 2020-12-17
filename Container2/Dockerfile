@@ -69,4 +69,5 @@ EXPOSE 10022
 
 USER ubuntu
 
-ENTRYPOINT ["/home/ubuntu/entrypoint.sh"]
+CMD ["/usr/sbin/sshd","-D","-f","/home/ubuntu/.ssh/sshd_config"]
+#ENTRYPOINT ["/home/ubuntu/entrypoint.sh"]
