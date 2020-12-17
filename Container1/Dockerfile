@@ -38,6 +38,7 @@ RUN mkdir -p /home/ubuntu/.ssh
 RUN echo "$gitlab_key\n" > /home/ubuntu/.ssh/authorized_keys
 RUN echo "$local_key\n" >> /home/ubuntu/.ssh/authorized_keys
 RUN echo "$container_key" >> /home/ubuntu/.ssh/authorized_keys
+RUN chmod -R 700 /home/ubuntu/.ssh/
 RUN chmod 600 /home/ubuntu/.ssh/authorized_keys
 
 #copying sshd config for the server setting
