@@ -19,7 +19,7 @@ COPY sshcontainerkey /home/ubuntu/.ssh/
 RUN echo "$gitlab_key\n" > /home/ubuntu/.ssh/authorized_keys
 RUN echo "$local_key\n" >> /home/ubuntu/.ssh/authorized_keys
 #RUN echo "$container_key" >> /home/ubuntu/.ssh/authorized_keys
-RUN chmod 700 /home/ubuntu/.ssh/authorized_keys
+RUN chmod 600 /home/ubuntu/.ssh/authorized_keys
 RUN chmod 700 /home/ubuntu/.ssh/sshcontainerkey
 
 #RUN cp /home/ubuntu/.ssh/authorized_keys /root/.ssh/authorized_keys
@@ -62,7 +62,7 @@ COPY run.sh graphs.R Benchmark.py Dudefile /home/ubuntu/
 
 RUN chmod -R 700 /home/ubuntu/
 RUN chown -R ubuntu /home/ubuntu/
-
+RUN chmod 600 /home/ubuntu/.ssh/authorized_keys
 WORKDIR /home/ubuntu
 
 EXPOSE 10022
