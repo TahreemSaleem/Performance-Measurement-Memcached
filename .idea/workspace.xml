@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="afaa33a6-7556-4935-aff6-2fde992ba20d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Container1/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Container1/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Container2/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Container2/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Container2/Benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/Container2/Benchmark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Container2/graphs.R" beforeDir="false" afterPath="$PROJECT_DIR$/Container2/graphs.R" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
