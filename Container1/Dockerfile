@@ -9,7 +9,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y openssh-server sudo
 #setting all public keys in environment variable
 ENV git_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcFj9AJ0yx2NswwEKPFQZqpiYZ8Mzk1LlRNatsVQqUfaDoQTKewuHRpp5jREB9RIMPczgFPDZSOBQ+mV8u5qJScmOcB8rhaF0GZkF1KIgHSNj8VqDNZWP52m1+NxSJetp6Opu3zTzkoZt9uo4HHeVZseTfN0UkxSjcWKYPX7+rOrvMhIxxKB9bR7UjmMkmoMfzP8UVkmc4MxIOo+RW9OM9GFselGN9JTYceZW8xhWNH2ENXQNWE5a807vP6kaKWp5bQ/c7NpISvTAO5UaVD26IRrtqea//MiUORjbXX+dEpFZuN6fRMh+zemerQ9rDHcgxRMacGZxBUjIRCa92zSr3 gitlab-runner@sep"
-ENV local_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDM84P1ZJyVdOr68Nzigm+lYkom56VO7ysmnlAB2fOyzxgLwNQssoA72lFiRN+GA8VZWePuSA0PLehD4e4pp6/wB8DNeXHg9piomFE10rwAca7OE6AyGeBCkO65Ko6rzpU/KZWibMBv35YiJt4UbNQYle6WgidZaq9RE01gbxtWjA4WKENZoHLneVWyOoaBpTReO2TNQ6T7chmDIRT0TMCCnuYPIVf5ZnkYW+be0Ea0/nG41MEXfPF819Eg/De9QXiblDF/Wav51Qt/GKhHiSVD1Ris2XzMtkplCkJAgvTMT4b30FPyQt0SZzRczh1ICzNCW3qMve5bL2UjIEu2hFGT root@localhost"
+ENV local_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8dvU5+brIgDvPj7vt+pt+KGmivqBZbeiQ6WL1WviI2FNsXTRzAgH9a2hbJLMlLkYFq5f68XFdFuJJzTaycDym58mMPcVEchD5egMubqCKEKLYyrUd/pohD2Q5ER8TuywffXunhTdHh1jeIn6r+XdQf4CsvKc1RKKzPks4G2HGiPMlf7bASrDlRuLqLsQADglf9o4LQAWgKoNHEdeP8UwbnFKixZDEIzHdIvRCthosbQe02TJfmxFvzfmrhgepaA+81r3of4SwL0Ql3bZyASQOOYevZdvv1hyFJdZvRsMYh0os/UgqwOCdF9fLF2i2gssha9BaYGY89qlPvml3IScgN49z0PjRKlsTsTFtRR7Vshrf2vqotGVs1bxHEucOJi3MVsiudKfx36xbHyNfuvbSuj9z0riIl8XGSovmZapMluT4TCmqSyVw2xm7UEW7DlXE27K34Cds1WfLPB1No7V6CowyXkjoMk3sYT4mdwxjH4YmudriWk6EQMWbtLKC3t8= ts@ts-Laptop"
 ENV container_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDYRWv7iR0VeVXu3ktkzcl3zV5KDl8r0s+vHREgJ6bj1tTfcIdbovese0YdfmTc4vvWJQRrvFktS7T5Bmo3/0+M46BIBXojcOkQ4tRXDvyCfrLGjumewix2WowaOPh5FJv84FPFtvNaLSrucz4SVDXkB6UvnadRhPe9yZDX+cYino2diqJnU4UrpmDhnMl8cbtaVWH6HVZL7mxK5qjod0MjJM4+WIniOExxg8CIpACXZQhGGoI9bwRdCBdMX78i/rmhOAbJ4u2rVx5HhYQs0NCUDrM9Y+0Z+U6l7EPoD52S0w1ZVzfrUhuL9v6ul8qmpCV9/tQzcvZcobtn7InpzFm7 ts@ts-Laptop"
 #installing memcached prereq
 RUN apt-get install -y gcc make wget
@@ -35,7 +35,7 @@ RUN chmod +x /app/entrypoint.sh
 RUN mkdir -p /home/ubuntu/.ssh
 
 #appending public keyes from environment variable
-RUN echo "$gitlab_key\n" > /home/ubuntu/.ssh/authorized_keys
+RUN echo "$git_key\n" > /home/ubuntu/.ssh/authorized_keys
 RUN echo "$local_key\n" >> /home/ubuntu/.ssh/authorized_keys
 RUN echo "$container_key" >> /home/ubuntu/.ssh/authorized_keys
 RUN chmod -R 700 /home/ubuntu/.ssh/

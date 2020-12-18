@@ -16,7 +16,7 @@ ENV local_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDM84P1ZJyVdOr68Nzigm+lYkom5
 RUN mkdir -p /home/ubuntu/.ssh
 RUN mkdir -p /root/.ssh
 COPY sshcontainerkey /home/ubuntu/.ssh/
-RUN echo "$gitlab_key\n" > /home/ubuntu/.ssh/authorized_keys
+RUN echo "$git_key\n" > /home/ubuntu/.ssh/authorized_keys
 RUN echo "$local_key\n" >> /home/ubuntu/.ssh/authorized_keys
 #RUN echo "$container_key" >> /home/ubuntu/.ssh/authorized_keys
 RUN chmod 600 /home/ubuntu/.ssh/authorized_keys
