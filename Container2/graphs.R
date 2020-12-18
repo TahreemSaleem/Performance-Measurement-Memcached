@@ -7,7 +7,7 @@ trellis.device("pdf", file="graph1.pdf", color=T, width=6.5, height=5.0)
 
 # ... xyplot here
 
-xyplot(requests/latency ~ latency, csvDataFrame, type='l')
+xyplot(requests ~ rate, data=csvDataFrame, type='l')
 
 
 dev.off() -> null 
@@ -15,6 +15,6 @@ dev.off() -> null
 trellis.device("pdf", file="graph2.pdf", color=T, width=6.5, height=5.0)
 
 # ... xyplot here
-xyplot(latency ~ requests, csvDataFrame, type='l')
+xyplot(latency ~ responses, data=csvDataFrame, type='l')
 
 dev.off() -> null 

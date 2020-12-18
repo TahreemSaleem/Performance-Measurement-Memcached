@@ -33,7 +33,7 @@ class Statistics (dude.summaries.FilesLineSelect):
             fname_split  = (lambda fname: "1"),
             ) 
 
-summaries = [Statistics("stats.csv", "requests latency")]
+summaries = [Statistics("stats.csv", "requests latency responses")]
 
 def setDefault(optpt, key, value):
     if key not in optpt.keys(): optpt[key] = value   
