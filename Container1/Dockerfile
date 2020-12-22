@@ -50,13 +50,9 @@ RUN service ssh start
 
 # Setup the default user.
 RUN useradd -ms /bin/bash -g root -G sudo -u 1000 ubuntu
-#RUN usermod -aG sudo ubuntu
-#RUN echo 'ubuntu:ubuntu' | chpasswd
 
 # ubuntu user can't access /etc/ folder, hence copying to its home folder and granting access
 RUN cp /etc/ssh /home/ubuntu/ssh -r
-#RUN chmod 600 /home/ubuntu/ssh/* && ls /home/ubuntu/ssh/
-#RUN chown -R ubuntu /home/ubuntu/ssh
 RUN chown -R ubuntu /home/ubuntu/
 
 WORKDIR /home/ubuntu
@@ -64,11 +60,7 @@ WORKDIR /home/ubuntu
 #Exposing ssh server port
 EXPOSE 2000
 
-#RUN chown -R ubuntu /etc/ssh
-
 #setting ubuntu user to start container
 USER ubuntu
 
 CMD ["/usr/sbin/sshd","-D","-f","/home/ubuntu/.ssh/sshd_config"]
-
-#ENTRYPOINT ["/app/entrypoint.sh"]

@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afaa33a6-7556-4935-aff6-2fde992ba20d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Container2/graph1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Container2/graph2.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Container2/Benchmark.py" beforeDir="false" afterPath="$PROJECT_DIR$/Container2/Benchmark.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Container2/Dudefile" beforeDir="false" afterPath="$PROJECT_DIR$/Container2/Dudefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Container2/graphs.R" beforeDir="false" afterPath="$PROJECT_DIR$/Container2/graphs.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/graph1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/graph2.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,5 +61,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix(client): mcperf stats to file fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(client): mcperf stats to file fix" />
   </component>
 </project>
