@@ -26,10 +26,7 @@ RUN rm -f /memcached-$VERSION.tar.gz
 
 EXPOSE 11211
 
-# making working directory and copying entrypoint.sh
 RUN mkdir /app
-COPY entrypoint.sh /app
-RUN chmod +x /app/entrypoint.sh
 
 #making .ssh folder to store all public keys
 RUN mkdir -p /home/ubuntu/.ssh

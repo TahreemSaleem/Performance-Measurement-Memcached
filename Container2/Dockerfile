@@ -46,19 +46,10 @@ RUN service ssh start
 
 # Setup the default user.
 RUN useradd -ms /bin/bash -g root -G sudo -u 1000 ubuntu
-#RUN usermod -aG sudo ubuntu
-#RUN echo 'ubuntu:ubuntu' | chpasswd
 
 RUN cp /etc/ssh /home/ubuntu/ssh -r
-#COPY sshcontainerkey /home/ubuntu/ssh
-#RUN chmod 600 /home/ubuntu/ssh/* && ls /home/ubuntu/ssh/
-#RUN chown -R ubuntu /home/ubuntu/ssh
 
-#RUN mkdir /home/ubuntu
-COPY entrypoint.sh /home/ubuntu/
-#RUN chmod +x /home/ubuntu/entrypoint.sh
 COPY run.sh graphs.R Benchmark.py Dudefile /home/ubuntu/
-#RUN chmod +x /home/ubuntu/run.sh
 
 RUN chmod -R 700 /home/ubuntu/
 RUN chown -R ubuntu /home/ubuntu/
@@ -70,4 +61,3 @@ EXPOSE 10022
 USER ubuntu
 
 CMD ["/usr/sbin/sshd","-D","-f","/home/ubuntu/.ssh/sshd_config"]
-#ENTRYPOINT ["/home/ubuntu/entrypoint.sh"]
